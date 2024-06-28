@@ -1,0 +1,79 @@
+.panel-body {
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #011b24;
+    color: white;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+
+.non-sc-container,
+.sc-container {
+    background-color: #072531;
+    border: 1px solid #013347;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 3px 5px;
+}
+
+:is(.non-sc-container, .sc-container)>.row {
+    display: flex;
+}
+
+:is(.non-sc-container, .sc-container)>.row:not(:first-child) {
+    margin-top: 10px;
+}
+
+.row>.left {
+    min-width: 45%;
+}
+
+.row>.right {
+    text-align: left;
+}
+
+.link:hover {
+    color: #7a8d94;
+    cursor: pointer;
+}
+
+.color-yellow {
+    color: #ebd71d
+}
+
+.panel-body>.image-container {
+    height: 146px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.panel-body>.image-container>.image {
+    max-height: 100%;
+}
+
+#root>.config-container {
+    height: 470px;
+    background-color: #072531;
+    border: 1px solid #013347;
+    border-radius: 5px;
+    padding: 8px;
+    margin: 5px;
+}
+
+#root>.config-container>.title {
+    font-size: 26px;
+    font-weight: bold;
+    color: white;
+}
+
+#root>.config-container>.description {
+    color: white;
+    font-size: 18px;
+}
+
+body {
+    margin: 0;
+}

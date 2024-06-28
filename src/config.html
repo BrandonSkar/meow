@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/config.css">
+    <title>Config Page</title>
+</head>
+
+<body class="config-body">
+    <div class="banner-container">
+        <img src="assets/images/banner12_1x.webp" alt="Banner" />
+    </div>
+    <div class="content-container">
+        <h3 class="title">Enter your Mario Kart ID</h3>
+        <input id="kartIdInput" class="input" type="text" pattern="[0-9]*" placeholder="Enter a Mario Kart ID">
+        <button id="submitBtn" class="submit-button">Submit</button>
+        <span id="success" class="success"></span>
+        <span id="fail" class="fail"></span>
+        <p>To get your Mario Kart ID, visit <span><a href="https://www.mariokart64.com/" target="_blank">mariokart64.com</a></span></p>
+        <p>Navigate to your profile, and the ID is the number at the end of the URL</p>
+        <p>Example: mariokart64.com/mk64/players/<span class="kart-id">317</span></p>
+        <div class="avatar-container">
+            <div class="select-title">
+                <div class="select-avatar">Select Avatar</div>
+                <div>
+                    <img class="none-image" src="assets/images/none.png" id="banner" alt="No Avatar">
+                </div>
+            </div>
+            <div class="images-container">
+                <div class="image-container" id="mario">
+                    <img class="image" src="assets/images/mario.png" alt="Mario" />
+                </div>
+                <div class="image-container" id="luigi">
+                    <img class="image" src="assets/images/luigi.png" alt="Luigi" />
+                </div>
+                <div class="image-container" id="peach">
+                    <img class="image" src="assets/images/peach.png" alt="Peach" />
+                </div>
+                <div class="image-container" id="toad">
+                    <img class="image" src="assets/images/toad.png" alt="Toad" />
+                </div>
+                <div class="image-container" id="yoshi">
+                    <img class="image" src="assets/images/yoshi.png" alt="Yoshi" />
+                </div>
+                <div class="image-container" id="donkey-kong">
+                    <img class="image" src="assets/images/donkey-kong.png" alt="Donkey Kong" />
+                </div>
+                <div class="image-container" id="wario">
+                    <img class="image" src="assets/images/wario.png" alt="Wario" />
+                </div>
+                <div class="image-container" id="bowser">
+                    <img class="image" src="assets/images/bowser.png" alt="Bowser" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
+    <script src="config.js"></script>
+</body>
+
+</html>
