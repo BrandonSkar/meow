@@ -13,4 +13,5 @@ window.addEventListener("DOMContentLoaded", async () => {
             <ViewerPage data={data.data} image={twitchConfig.imageId}/>
         </React.StrictMode>
     )
-})
+});
+

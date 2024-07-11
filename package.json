@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx esbuild src/panel.jsx --bundle --outfile=dist/panel.js",
-    "start": "npx esbuild src/panel.jsx --bundle --outfile=dist/panel.js --servedir=dist"
+    "build": "node build.mjs",
+    "start": "node build.mjs --serve"
   },
   "author": "",
   "license": "ISC",
