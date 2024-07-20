@@ -34,6 +34,12 @@
     text-align: left;
 }
 
+.row>.right>.system-type {
+    cursor: pointer;
+}
+
+
+
 .link:hover {
     color: #7a8d94;
     cursor: pointer;
@@ -48,6 +54,7 @@
     width: auto;
     display: flex;
     justify-content: center;
+    cursor: pointer;
 }
 
 .panel-body>.image-container>.image {

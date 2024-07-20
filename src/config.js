@@ -28,20 +28,22 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     const imageContainers = document.querySelectorAll('.image-container');
-    const noneImage = document.getElementById('banner');
-    let selectedImage = "banner";
+    const defaultImage = document.getElementById('banner');
+    let selectedImage = "banner"
 
     imageContainers.forEach(container => {
         container.addEventListener('click', () => {
             imageContainers.forEach(item => item.classList.remove('selected'));
+            defaultImage.classList.remove('selected');
             container.classList.add('selected');
             selectedImage = container.id;
             sendImageId(selectedImage);
         });
     });
 
-    if (noneImage) {
-        noneImage.addEventListener('click', () => {
+    if (defaultImage) {
+        defaultImage.addEventListener('click', () => {
+            defaultImage.classList.add('selected')
             imageContainers.forEach(item => item.classList.remove('selected'));
             selectedImage = "banner";
             sendImageId(selectedImage);

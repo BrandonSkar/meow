@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 function ViewerPage({data, image}) {
+    const [isNTSC, setIsNTSC] = useState(true);
+
     return (
         <div className="panel-body">
             <div className="non-sc-container">
@@ -78,7 +80,9 @@ function ViewerPage({data, image}) {
                                 </span>
                             </div>
                             <div className="right">
-                                {formatTime(Number(data.nonsc.raceTotal))} <span className="color-yellow">({numberToRank(data.nonsc.raceTotalRank)})</span>
+                                {isNTSC ? formatTime(Number(data.nonsc.raceTotal)) : formatTime(Number(data.nonsc.raceTotalPal))}&nbsp;
+                                <span className="system-type" onClick={() => setIsNTSC(!isNTSC)}>{isNTSC ? "(NTSC)" : "(PAL)"}</span>&nbsp;
+                                <span className="color-yellow">({numberToRank(data.nonsc.raceTotalRank)})</span>
                             </div>
                         </div>
                         <div className="row">
@@ -91,7 +95,9 @@ function ViewerPage({data, image}) {
                                 </span>
                             </div>
                             <div className="right">
-                                {formatTime(Number(data.nonsc.lapTotal))} <span className="color-yellow">({numberToRank(data.nonsc.lapTotalRank)})</span>
+                                {isNTSC ? formatTime(Number(data.nonsc.lapTotal)) : formatTime(Number(data.nonsc.lapTotalPal))}&nbsp;
+                                <span className="system-type" onClick={() => setIsNTSC(!isNTSC)}>{isNTSC ? "(NTSC)" : "(PAL)"}</span>&nbsp;
+                                <span className="color-yellow">({numberToRank(data.nonsc.lapTotalRank)})</span>
                             </div>
                         </div>
                     </>
@@ -173,7 +179,9 @@ function ViewerPage({data, image}) {
                                 </span>
                             </div>
                             <div className="right">
-                                {formatTime(Number(data.sc.raceTotal))} <span className="color-yellow">({numberToRank(data.sc.raceTotalRank)})</span>
+                                {isNTSC ? formatTime(Number(data.sc.raceTotal)) : formatTime(Number(data.sc.raceTotalPal))}&nbsp;
+                                <span className="system-type" onClick={() => setIsNTSC(!isNTSC)}>{isNTSC ? "(NTSC)" : "(PAL)"}</span>&nbsp;
+                                <span className="color-yellow">({numberToRank(data.sc.raceTotalRank)})</span>
                             </div>
                         </div>
                         <div className="row">
@@ -186,7 +194,9 @@ function ViewerPage({data, image}) {
                                 </span>
                             </div>
                             <div className="right">
-                                {formatTime(Number(data.sc.lapTotal))} <span className="color-yellow">({numberToRank(data.sc.lapTotalRank)})</span>
+                                {isNTSC ? formatTime(Number(data.sc.lapTotal)) : formatTime(Number(data.sc.lapTotalPal))}&nbsp;
+                                <span className="system-type" onClick={() => setIsNTSC(!isNTSC)}>{isNTSC ? "(NTSC)" : "(PAL)"}</span>&nbsp;
+                                <span className="color-yellow">({numberToRank(data.sc.lapTotalRank)})</span>
                             </div>
                         </div>
                     </>
@@ -194,7 +204,7 @@ function ViewerPage({data, image}) {
             </div>
 
             <div className="image-container">
-                <img className="image" src={`assets/images/${image}.png`} alt="Mario Kart 64" />
+                <img className="image" src={`assets/images/${image || "banner"}.png`} alt="Mario Kart 64" onClick={() => window.open('https://www.mariokart64.com/mk64/players/' + (JSON.stringify(data.nonsc) === '{}' ? data.sc.id : data.nonsc.id), '_blank')} />
             </div>
             <script src="https://extension-files.twitch.tv/helper/v1/twitch-ext.min.js"></script>
         </div>
@@ -214,10 +224,10 @@ const formatTime = (seconds) => {
     // Extract milliseconds from the remaining seconds
     let milliseconds = Math.round((remainingSeconds - fullSeconds) * 100);
 
-    // Ensure two digits formatting
-    let formattedMinutes = String(minutes).padStart(2, '0');
-    let formattedSeconds = String(fullSeconds).padStart(2, '0');
-    let formattedMilliseconds = String(milliseconds).padStart(2, '0');
+    // Remove leading zeros
+    let formattedMinutes = String(minutes);
+    let formattedSeconds = String(fullSeconds);
+    let formattedMilliseconds = String(milliseconds);
 
     // Return the formatted string
     return `${formattedMinutes}'${formattedSeconds}"${formattedMilliseconds}`;

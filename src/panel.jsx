@@ -10,7 +10,7 @@ window.addEventListener("DOMContentLoaded", async () => {
         .then((res) => res.json())
     ReactDOM.createRoot(document.getElementById('root')).render(
         <React.StrictMode>
-            <ViewerPage data={data.data} image={twitchConfig.imageId}/>
+            <ViewerPage data={data.data} image={twitchConfig.imageId} />
         </React.StrictMode>
     )
 });
