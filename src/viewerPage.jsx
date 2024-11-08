@@ -1,7 +1,11 @@
 import React, {useState} from 'react';
 
 function ViewerPage({data, image}) {
-    const [isNTSC, setIsNTSC] = useState(true);
+    const [isNTSC, setIsNTSC] = useState(JSON.stringify(data.nonsc !== '{}') ? (
+        data.nonsc.mainRegion === "NTSC"
+    ) : (
+        data.sc.mainRegion === "NTSC"
+    ))
 
     return (
         <div className="panel-body">
