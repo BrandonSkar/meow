@@ -226,8 +226,8 @@ const formatTime = (seconds) => {
 
     // Remove leading zeros
     let formattedMinutes = String(minutes);
-    let formattedSeconds = String(fullSeconds);
-    let formattedMilliseconds = String(milliseconds);
+    let formattedSeconds = fullSeconds.toString().padStart(2, '0');
+    let formattedMilliseconds = milliseconds.toString().padStart(2, '0');
 
     // Return the formatted string
     return `${formattedMinutes}'${formattedSeconds}"${formattedMilliseconds}`;

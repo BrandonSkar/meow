@@ -54,11 +54,11 @@
     width: auto;
     display: flex;
     justify-content: center;
-    cursor: pointer;
 }
 
 .panel-body>.image-container>.image {
     max-height: 100%;
+    cursor: pointer;
 }
 
 #root>.config-container {
